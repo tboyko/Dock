@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Dock Exhibition Format for Indexhibit</title>
+
+	<link rel="stylesheet" type="text/css" href="styles/reset.css" />
+	<link rel="stylesheet" type="text/css" href="styles/wrp.css" />
+	<link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancybox-1.3.4.css" />
+	
+	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="./fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="./fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	
+	<script type="text/javascript">
+		$(function() {
+			$("a[rel=example-group]").fancybox({
+				'transitionIn'		: 'elastic'
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	<div id="header">
+		<h1>Dock</h1>
+		<h3>An Exhibition Format for Indexhibit</h3>
+	</div>	
+	
+	<div id="content">
+		<p><strong>Dock</strong> is an <a href="http://www.indexhibit.org/">Indexibit</a> plugin that provides an additional presentation format for your exhibitions. A hiding dock, much like the dock in Apple OS X, is presented at the bottom of the exhibition screen, displaying thumbnails of the images in your exhibit. The remainder of the screen displays the currently selected image, automatically sized based upon your browser window size. Transitions between images and dock interactions are lightly animated for your viewing pleasure.</p>
+	
+		<h2>Examples</h2>
+		<a rel="example-group" href="./images/example1.jpg"><img src="./images/example1.jpg" /></a>
+		<a rel="example-group" href="./images/example2.jpg"><img src="./images/example2.jpg" /></a>
+		<a rel="example-group" href="./images/example3.jpg"><img src="./images/example3.jpg" /></a>
+	
+		<p>A live site running the <strong>Dock</strong> exhibition format can be viewed at <a href="http://www.tylerwilliamparker.com" target="_blank">tylerwilliamparker.com</a>.</p>
+	
+		<h2>Installation</h2>
+		<p>Installation is extremely simple.</p>
+		<ol>
+			<li>Optionally modify the default settings found in exhibit.dock.php.</li>
+			<li>Place exhibit.dock.php in the "ndxz-studio/site/plugin/" folder.</li>
+			<li>From within the indexhibit administration interface, edit an exhibit. Select "Dock" from the "Exhibition Format" drop-down menu. You're done!</li>
+		</ol>
+		
+		<h2>Download</h2>
+		<a href="https://github.com/tboyko/Dock">Dock on GitHub</a>
+	</div>
+	
+</body>	
+</html>
