@@ -5,7 +5,7 @@
 	<title>Dock Exhibition Format for Indexhibit</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/reset.css" />
-	<link rel="stylesheet" type="text/css" href="styles/wrp.css" />
+	<link rel="stylesheet" type="text/css" href="styles/dock.css" />
 	<link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancybox-1.3.4.css" />
 	
 	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
@@ -18,13 +18,26 @@
 				'transitionIn'		: 'elastic'
 			});
 		});
+		
+		/* Google Analytics */
+		var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-918043-5']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
 	</script>
 	
 </head>
 <body>
 	<div id="header">
-		<h1>Dock</h1>
-		<h3>An Exhibition Format for Indexhibit</h3>
+		<div id="header-container">
+			<h1>Dock</h1>
+			<h3>An Exhibition Format for Indexhibit</h3>
+		</div>
 	</div>	
 	
 	<div id="content">
@@ -38,15 +51,18 @@
 		<p>A live site running the <strong>Dock</strong> exhibition format can be viewed at <a href="http://www.tylerwilliamparker.com" target="_blank">tylerwilliamparker.com</a>.</p>
 	
 		<h2>Installation</h2>
-		<p>Installation is extremely simple.</p>
+		<p>Installation is quick and easy.</p>
 		<ol>
-			<li>Optionally modify the default settings found in exhibit.dock.php.</li>
-			<li>Place exhibit.dock.php in the "ndxz-studio/site/plugin/" folder.</li>
-			<li>From within the indexhibit administration interface, edit an exhibit. Select "Dock" from the "Exhibition Format" drop-down menu. You're done!</li>
+			<li><span>Optionally modify the default settings found in exhibit.dock.php.</span></li>
+			<li><span>Place exhibit.dock.php in the "ndxz-studio/site/plugin/" folder.</span></li>
+			<li><span>From within the indexhibit administration interface, edit an exhibit. Select "Dock" from the "Exhibition Format" drop-down menu. You're done!</span></li>
 		</ol>
 		
 		<h2>Download</h2>
 		<a href="https://github.com/tboyko/Dock">Dock on GitHub</a>
+		
+		<h2>Contact</h2>
+		<p>Comments? Concerns? Send me an <a href="mailto:&#116;&#097;&#121;&#108;&#111;&#114;&#098;&#111;&#121;&#107;&#111;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">email</a>.</p>
 	</div>
 	
 </body>	
