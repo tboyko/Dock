@@ -9,7 +9,11 @@
 *
 */
 
-$dock = new Dock;
+// Styling Options
+$dock = new Dock({
+	'headerHeight' => 110,
+	'scaleImagesBeyondDimensions' => true
+});
 
 $exhibit['exhibit'] = $dock->createExhibit();
 $exhibit['dyn_css'] = $dock->dynamicCSS();
@@ -17,15 +21,13 @@ $exhibit['dyn_js'] = $dock->dynamicJS();
 
 class Dock
 {
-	// Styling Options
-	var $headerHeight = 110;
-	var $scaleImagesBeyondDimensions = true;
-	
+	var $headerHeight;
 	var $imgSizePre;
 	
-	function __construct()
+	function __construct($settings)
 	{
-		$this->imgSizePre = ($this->scaleImagesBeyondDimensions) ? "" : "max-";
+		$this->headerHeight = $settings['headerHeight'];
+		$this->imgSizePre = ($settings['scaleImagesBeyondDimensions']) ? "" : "max-";
 	}
 	
 	function createExhibit()
