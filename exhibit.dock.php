@@ -5,14 +5,14 @@
 * Exhbition format
 *
 * @version 1.0
-* @author Taylor Boyko, taylor@wrprojects.com 
+* @author Taylor Boyko, taylorboyko@gmail.com 
 *
 */
 
-// Styling Options
+// USER OPTIONS
 $dock = new Dock({
-	'headerHeight' => 110,
-	'scaleImagesBeyondDimensions' => true
+	'headerHeight' => 110, // Dock needs to know the height of your header to properly size your main image
+	'scaleImagesBeyondDimensions' => true // if set to false, images will not be resized larger than their native dimensions. They will be shrunk regardless, if necessary.
 });
 
 $exhibit['exhibit'] = $dock->createExhibit();
