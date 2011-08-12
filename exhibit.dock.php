@@ -10,10 +10,10 @@
 */
 
 // USER OPTIONS
-$dock = new Dock({
+$dock = new Dock( array(
 	'headerHeight' => 110, // Dock needs to know the height of your header to properly size your main image
 	'scaleImagesBeyondDimensions' => true // if set to false, images will not be resized larger than their native dimensions. They will be shrunk regardless, if necessary.
-});
+));
 
 $exhibit['exhibit'] = $dock->createExhibit();
 $exhibit['dyn_css'] = $dock->dynamicCSS();
