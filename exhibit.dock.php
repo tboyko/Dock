@@ -4,7 +4,6 @@
 * Dock
 * Exhbition format
 *
-* @version 1.0
 * @author Taylor Boyko, taylorboyko@gmail.com 
 *
 */
@@ -73,7 +72,7 @@ class Dock
 		for($i=0;$i<count($pictures);$i++)
 		{
 			$picture = $pictures[$i];
-			$jsonImageArray .= $i . ':' . "'" . BASEURL . GIMGS . "/" . $picture[media_file] . "',";
+			$jsonImageArray .= $i . ':' . "'" . BASEURL . GIMGS . "/" . $picture['media_file'] . "',";
 		}
 		$jsonImageArray = substr($jsonImageArray,0,strlen($jsonImageArray)-1) . '}';
 		
