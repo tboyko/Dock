@@ -10,7 +10,6 @@
 
 // USER OPTIONS
 $dock = new Dock( array(
-	'headerHeight' => 110, // Dock needs to know the height of your header to properly size your main image
 	'scaleImagesBeyondDimensions' => true // if set to false, images will not be resized larger than their native dimensions. They will be shrunk regardless, if necessary.
 ));
 
@@ -20,12 +19,10 @@ $exhibit['dyn_js'] = $dock->dynamicJS();
 
 class Dock
 {
-	var $headerHeight;
 	var $imgSizePre;
 	
 	function __construct($settings)
 	{
-		$this->headerHeight = $settings['headerHeight'];
 		$this->imgSizePre = ($settings['scaleImagesBeyondDimensions']) ? "" : "max-";
 	}
 	
@@ -92,11 +89,14 @@ class Dock
 					TD.jq.thumbnailBar = $('#thumbnail-bar');
 					TD.jq.thumbnails = $('img', TD.jq.thumbnailBar);
 					TD.jq.thumbnailHotspot = $('#thumbnail-hotspot');
+					TD.jq.parentContainer = TD.jq.imageContainer.parent();
 					
 					TD.jq.image.attr('src', TD.imageArray[0]).load(function() {
 						TD.ResizeImage(); 
 						TD.jq.image.animate({opacity: 1}, 300);
 					});
+					
+					TD.RepositionDock();
 					
 					TD.jq.thumbnails.each( function(index) {
 						$(this).attr('src', TD.imageArray[index]).load(TD.ShowThumbnailDockOnLoad);
@@ -107,7 +107,11 @@ class Dock
 						$(this).data('imageNumber', index);
 					});
 					
-					$(window).resize(TD.ResizeImage);
+					$(window).resize(function() 
+						{
+							TD.ResizeImage();
+							TD.RepositionDock();
+						});
 					
 					TD.jq.thumbnailHotspot.mouseenter(TD.ShowThumbnailDock);
 					
@@ -178,13 +182,16 @@ class Dock
 						.css('" . $this->imgSizePre . "height', '100%')
 						.css('width', 'auto');
 					TD.jq.imageContainer
-						.css('height', window.innerHeight - 90 - " . $this->headerHeight . ");
+						.css('height', $(window).height()-TD.jq.parentContainer.offset().top-120);	
 					if (TD.jq.image.width() >= TD.jq.imageContainer.width()) {
 						TD.jq.image
 							.css('height', 'auto')
 							.css('" . $this->imgSizePre . "width', '100%');
 					}
 					TD.jq.image.css('visibility', 'visible');
+				},
+				RepositionDock: function() {
+					TD.jq.thumbnailBar.css('width', TD.jq.parentContainer.outerWidth());
 				},
 				imageArray: " . $jsonImageArray . ",
 				imageArraySize: " . count($pictures) . ",
@@ -225,12 +232,14 @@ class Dock
 			padding-right: 1px;
 			height: 55px;
 			width: auto;
+			cursor: pointer;
 		}
 		
 		#image-container > img {
 			" . $this->imgSizePre . "height: 100%;
 			width: auto;
 			opacity: 0;
+			cursor: pointer;
 		}
 		";
 	}
