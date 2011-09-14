@@ -20,6 +20,10 @@ a {
 	color: blue;
 }
 
+p {
+	margin-bottom: 15px;
+}
+
 #header {
 	background-color: white;
 }
