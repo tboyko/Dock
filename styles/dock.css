@@ -47,6 +47,13 @@ ol {
 	margin: 15px 0 0 20px;
 	list-style: decimal;
 }
+
+ul {
+	margin: -10px 0 15px 20px;
+	list-style-type: circle;
+	color: grey;
+}
+
 ol span {
 	color: #333333;
 	font-weight: normal;
